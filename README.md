@@ -1,2 +1,2 @@
 # AndroidDevTools
-personal use
+For Personal Use
