@@ -1,9 +1,6 @@
 package com.alip.zy.tools;
 
-import android.app.NotificationManager;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -64,20 +61,20 @@ public class FilesTestActivity extends BaseImmersiveActivity {
 
 
 
-        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        int notificationID = 1;
-        String CHANNEL_ID = "my_channel_01";
-// Set a message count to associate with this notification in the long-press menu.
-        int messageCount = 3;
-// Create a notification and set a number to associate with it.
-        NotificationCompat notification =
-                new NotificationCompat.Builder(MainActivity.this, CHANNEL_ID)
-                        .setContentTitle("New Messages")
-                        .setContentText("You've received 3 new messages.")
-                        .setSmallIcon(R.drawable.ic_notify_status)
-                        .setNumber(messageCount)
-                        .build();
-// Issue the notification.
-        mNotificationManager.notify(notificationID, notification);
+//        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//        int notificationID = 1;
+//        String CHANNEL_ID = "my_channel_01";
+//// Set a message count to associate with this notification in the long-press menu.
+//        int messageCount = 3;
+//// Create a notification and set a number to associate with it.
+//        NotificationCompat notification =
+//                new NotificationCompat.Builder(MainActivity.this, CHANNEL_ID)
+//                        .setContentTitle("New Messages")
+//                        .setContentText("You've received 3 new messages.")
+//                        .setSmallIcon(R.drawable.ic_notify_status)
+//                        .setNumber(messageCount)
+//                        .build();
+//// Issue the notification.
+//        mNotificationManager.notify(notificationID, notification);
     }
 }
