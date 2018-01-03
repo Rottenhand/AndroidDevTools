@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.alip.zy.tools.FilesTestActivity">
+
+    <TextView
+        android:id="@+id/show_file_dir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="Device File Directory"
+        android:textSize="20sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/files_Dir"
+        android:text="getFilesDir"
+        android:textAllCaps="false"
+        android:onClick="showFileDir"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/external_files_Dir"
+        android:text="externalFilesDir"
+        android:textAllCaps="false"
+        android:onClick="showExternalFileDir"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cache_Dir"
+        android:text="getCachesDir"
+        android:textAllCaps="false"
+        android:onClick="showCacheDir"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/external_Cache_Dir"
+        android:text="getExternalCacheDir"
+        android:textAllCaps="false"
+        android:onClick="showExternalCacheDir"/>
+
+</LinearLayout>
