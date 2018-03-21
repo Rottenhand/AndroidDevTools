@@ -6,10 +6,14 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.alip.zy.tools.R;
 import com.alip.zy.view.adapter.HomeEntryListAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 首页
@@ -36,11 +40,6 @@ public class HomeEntryView extends FrameLayout {
         initViews(context);
     }
 
-    public HomeEntryView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        initViews(context);
-    }
-
     private void initViews(Context context) {
         LayoutInflater.from(context).inflate(R.layout.fragment_home_entry, this, true);
 
@@ -62,5 +61,29 @@ public class HomeEntryView extends FrameLayout {
 //        mhomeList.addHeaderView(text, null, true);
 //        mhomeList.setHeaderDividersEnabled(false);
 
+
+
+        // Create a progress bar to display while the list loads
+        ProgressBar progressBar = findViewById(R.id.home_entry_loading);
+        mHomeList.setEmptyView(progressBar);
+
+        // Must add the progress bar to the root of the layout
+//        ViewGroup root = (ViewGroup) ((Activity)getContext()).findViewById(android.R.id.content);
+//        root.addView(progressBar);
+
+        this.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                addDataToList();
+            }
+        }, 3000);
+    }
+
+    public void addDataToList() {
+        List<String> dataList = new ArrayList<>(50);
+        for (int i=0 ; i<50; i++) {
+            dataList.add(i, "dataList_"+i);
+        }
+        mEntryListAdapter.addAllData(dataList);
     }
 }

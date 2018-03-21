@@ -16,24 +16,12 @@
         android:fadeScrollbars="true"
         android:headerDividersEnabled="false"/>
 
-    <!--<ScrollView-->
-        <!--android:id="@+id/scroll_view"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:paddingBottom="@dimen/activity_vertical_margin"-->
-        <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
-        <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
-        <!--android:paddingTop="@dimen/activity_vertical_margin"-->
-        <!--android:visibility="visible">-->
-
-        <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="0000_0"-->
-            <!--android:textSize="20sp"-->
-            <!--android:textColor="@android:color/holo_orange_light"/>-->
-
-    <!--</ScrollView>-->
+    <ProgressBar
+        android:id="@+id/home_entry_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:importantForAccessibility="no"/>
 
 </merge>

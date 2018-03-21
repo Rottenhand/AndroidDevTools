@@ -1,2 +1,15 @@
 Android O(8.0)通知栏适配
 http://blog.csdn.net/rentee/article/details/78303532
+
+Android dev
+https://developer.android.com/guide/topics/ui/notifiers/notifications.html#AdjustingBadges
+
+notification progress
+https://developer.android.com/training/notify-user/display-progress.html
+
+ArrayMap
+https://developer.android.com/reference/android/util/ArrayMap.html
+
+Deep Link
+http://www.jianshu.com/p/964f871dc716
+http://blog.csdn.net/u010940300/article/details/51426874

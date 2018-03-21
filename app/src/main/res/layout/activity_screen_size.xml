@@ -14,6 +14,7 @@
         android:id="@+id/tvShowSize"
         android:text="Screen Size Tool"
         android:textSize="24dp"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"/>
@@ -36,7 +37,7 @@
 
     <Button
         android:id="@+id/btnScreenSize3"
-        android:layout_below="@+id/btnScreenSize2"
+        android:layout_below="@id/btnScreenSize2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get Screen Size 3"
@@ -44,10 +45,18 @@
 
     <Button
         android:id="@+id/btnScreenDensity"
-        android:layout_below="@+id/btnScreenSize3"
+        android:layout_below="@id/btnScreenSize3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get Screen Density"
         android:onClick="btnGetScreenDensity"/>
+
+    <Button
+        android:id="@+id/btnSwitchImmersive"
+        android:layout_below="@id/btnScreenDensity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="setImmersiveMode"
+        android:onClick="btnSwitchImmersive"/>
 
 </RelativeLayout>

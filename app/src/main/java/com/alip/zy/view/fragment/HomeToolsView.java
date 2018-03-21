@@ -20,6 +20,7 @@ import com.alip.zy.tools.FilesTestActivity;
 import com.alip.zy.tools.NotificationActivity;
 import com.alip.zy.tools.R;
 import com.alip.zy.tools.ScreenSize;
+import com.alip.zy.view.activity.JSONToolsActivity;
 import com.alip.zy.viewanimation.ViewAnimation;
 
 /**
@@ -29,7 +30,7 @@ import com.alip.zy.viewanimation.ViewAnimation;
  */
 public class HomeToolsView extends FrameLayout{
 
-    private Button mBtnScreenSize, mBtnAnimation, mBtnLayoutAnimation, mPaoMaDeng, mFilesDir, mParseColor, mNotification, mTabLayout;
+    private Button mBtnScreenSize, mBtnAnimation, mBtnLayoutAnimation, mPaoMaDeng, mFilesDir, mParseColor, mNotification, mTabLayout, mBtnJson;
     private EditText colorInt;
 
     public HomeToolsView(Context context) {
@@ -47,11 +48,6 @@ public class HomeToolsView extends FrameLayout{
         initViews(context);
     }
 
-    public HomeToolsView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        initViews(context);
-    }
-
     private void initViews(Context context) {
         LayoutInflater.from(context).inflate(R.layout.fragment_home_tools, this, true);
         colorInt = findViewById(R.id.showColorInt);
@@ -64,6 +60,7 @@ public class HomeToolsView extends FrameLayout{
         mParseColor = findViewById(R.id.parse_color);
         mNotification = findViewById(R.id.btn_notification);
         mTabLayout = findViewById(R.id.btn_tab_layout);
+        mBtnJson = findViewById(R.id.btn_json_tool);
 
         initViewListener();
 
@@ -122,6 +119,13 @@ public class HomeToolsView extends FrameLayout{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), TabLayoutActivity.class);
+                getContext().startActivity(intent);
+            }
+        });
+        mBtnJson.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), JSONToolsActivity.class);
                 getContext().startActivity(intent);
             }
         });

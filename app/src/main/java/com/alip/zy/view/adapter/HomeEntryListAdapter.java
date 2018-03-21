@@ -20,10 +20,6 @@ public class HomeEntryListAdapter extends BaseAdapter {
 
     public HomeEntryListAdapter(Context context){
         mContext = context;
-
-        for (int i=0 ; i<50; i++) {
-            dataList.add(i, "dataList_"+i);
-        }
     }
 
     @Override
@@ -50,6 +46,12 @@ public class HomeEntryListAdapter extends BaseAdapter {
         tv.setText(data);
 
         return convertView;
+    }
+
+    public void addAllData(List<String> data) {
+        dataList.clear();
+        dataList.addAll(data);
+        notifyDataSetChanged();
     }
 
 }
