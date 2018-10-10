@@ -12,4 +12,9 @@
         <item name="android:windowEnterAnimation">@anim/pop_anim</item>
     </style>
 
+    <style name="transparent_theme">
+
+
+    </style>
+
 </resources>

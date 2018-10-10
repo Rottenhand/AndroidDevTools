@@ -1,27 +1,35 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.alip.zy.tools"
-        minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 100
+        versionName "0.5.001"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            jniDebuggable true
         }
     }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:design:26.0.0-alpha1'
-    compile 'com.android.support:support-v13:26.0.0-alpha1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation "com.android.support:support-annotations:$supportVersion"
+    implementation "com.android.support:support-core-utils:$supportVersion"
+    implementation "com.android.support:support-core-ui:$supportVersion"
+    implementation "com.android.support:support-v13:$supportVersion"
+    implementation "com.android.support:recyclerview-v7:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+//    implementation "com.android.support:multidex:1.0.3"
+
 }

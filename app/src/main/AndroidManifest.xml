@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alip.zy.tools">
+    package="com.alip.zy.tools"
+    android:installLocation="internalOnly"
+    android:versionCode="100"
+    android:versionName="0.5.0001">
+
+    <!-- Permission groups -->
+    <!-- CAMERA -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- CONTACTS -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- LOCATION -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- MICROPHONE -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- PHONE -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- STORAGE -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Normal permissions -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -39,10 +68,12 @@
         <activity android:name=".FilesTestActivity" />
         <activity android:name=".TabViewPagerTest" />
         <activity android:name=".NotificationActivity" />
-        <activity android:name="com.alip.zy.tabTest.TabLayoutActivity"></activity>
+        <activity android:name="com.alip.zy.tabTest.TabLayoutActivity" />
         <activity android:name="com.alip.zy.view.activity.JSONToolsActivity" />
         <activity android:name="com.alip.zy.view.activity.FileManagerActivity" />
-        <activity android:name="com.alip.zy.view.activity.CheckBuildActivity"></activity>
+        <activity android:name="com.alip.zy.view.activity.CheckBuildActivity" />
+        <activity android:name="com.alip.zy.view.activity.TransProgressActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
     </application>
 
 </manifest>
