@@ -88,7 +88,7 @@ public class NotificationActivity extends BaseImmersiveActivity implements View.
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
             //前三个必须设置
             builder.setContentTitle("提示:");
-            builder.setSmallIcon(R.mipmap.ic_launcher);
+            builder.setSmallIcon(R.mipmap.ic_launcher_foreground);
             builder.setContentText("ContentText");
             builder.setContentInfo("天气转凉，注意保暖");
             builder.setSubText("SubText");
@@ -135,7 +135,7 @@ public class NotificationActivity extends BaseImmersiveActivity implements View.
             NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-            builder.setSmallIcon(R.mipmap.ic_launcher);
+            builder.setSmallIcon(R.mipmap.ic_launcher_foreground);
             builder.setContentText("正在下载");
             builder.setContentTitle("提示");
             int index = 0;
