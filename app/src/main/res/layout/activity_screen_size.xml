@@ -8,16 +8,21 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.alip.zy.tools.ScreenSize">
+    tools:context="com.alip.zy.tools.ScreenSize"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <TextView
         android:id="@+id/tvShowSize"
         android:text="Screen Size Tool"
         android:textSize="24dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"/>
+        android:minHeight="48dp"
+        android:layout_marginBottom="10dp"
+        android:maxLines="2"
+        android:gravity="center"/>
 
     <Button
         android:layout_below="@id/tvShowSize"
@@ -40,7 +45,7 @@
         android:layout_below="@id/btnScreenSize2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get Screen Size 3"
+        android:text="Get Real Screen Size"
         android:onClick="btnGetScreenSize3"/>
 
     <Button
@@ -58,5 +63,29 @@
         android:layout_height="wrap_content"
         android:text="setImmersiveMode"
         android:onClick="btnSwitchImmersive"/>
+
+    <FrameLayout
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_below="@id/btnSwitchImmersive"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <View
+            android:id="@+id/test_texture_image"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:background="@android:color/holo_green_light"/>
+
+        <View
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_gravity="top|left"
+            android:layout_marginTop="-80dp"
+            android:layout_marginLeft="-80dp"
+            android:background="@android:color/holo_blue_bright"/>
+
+    </FrameLayout>
 
 </RelativeLayout>

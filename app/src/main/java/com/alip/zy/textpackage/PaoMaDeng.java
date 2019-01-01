@@ -33,7 +33,6 @@ public class PaoMaDeng extends BaseImmersiveActivity {
     private Button topButton;
     private FrameLayout mContentView;
     private View mMaskView;
-    private RelativeLayout testRL;
 
 
 
@@ -55,7 +54,6 @@ public class PaoMaDeng extends BaseImmersiveActivity {
         btn4 = (Button) findViewById(R.id.btn4);
         btn5 = (Button) findViewById(R.id.btn5);
         topButton = (Button) findViewById(R.id.topButton);
-        testRL = (RelativeLayout) findViewById(R.id.textClickRelativeLayout);
         final ViewGroup contentView = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.poplayout, null);
         final PopupWindow pop = new PopupWindow(contentView);
         final ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -71,13 +69,6 @@ public class PaoMaDeng extends BaseImmersiveActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(PaoMaDeng.this, "button!", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        testRL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(PaoMaDeng.this, "layout!", Toast.LENGTH_SHORT).show();
             }
         });
 

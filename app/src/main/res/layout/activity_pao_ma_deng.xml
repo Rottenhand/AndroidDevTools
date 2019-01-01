@@ -17,62 +17,15 @@
         android:layout_alignParentTop="true"
         android:text="dianWo"/>
 
-    <RelativeLayout
-        android:id="@+id/textClickRelativeLayout"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/topButton"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
-        android:clickable="true"
-        android:background="@drawable/selector_ripple">
-        <!-- 应用这个属性让普通控件拥有波纹动画-->
-        <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="@android:color/holo_green_light"/>-->
-    </RelativeLayout>
-
-
-    <TextView
-        android:background="?android:attr/selectableItemBackground"
-        android:id="@+id/firstText"
-        android:clickable="true"
-        android:gravity="center"
-        android:layout_below="@id/textClickRelativeLayout"
-        android:layout_height="56dp"
-        android:layout_marginTop="36dp"
-        android:layout_width="match_parent"
-        android:text="Hello World1!"/>
-
-    <!--<TextView-->
-        <!--android:id="@+id/secoundText"-->
-        <!--android:background="?android:attr/selectableItemBackgroundBorderless"-->
-        <!--android:clickable="true"-->
-        <!--android:gravity="center"-->
-        <!--android:layout_below="@id/firstText"-->
-        <!--android:layout_height="56dp"-->
-        <!--android:layout_marginTop="36dp"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:text="Hello World2!"/>-->
-
-    <Switch
-        android:id="@+id/list_item_switch"
-        android:layout_below="@id/firstText"
-        android:layout_width="20dp"
-        android:layout_height="10dp"
-        android:thumb="@android:color/holo_blue_light"
-        android:track="@android:color/holo_green_light"/>
-
-    <View
+    <ImageView
+        android:id="@+id/test_cut_image"
+        android:layout_below="@id/topButton"
         android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:layout_below="@id/list_item_switch"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/borkenline"
-        android:layerType="software"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:elevation="20dp"
+        android:layout_centerHorizontal="true"/>
 
     <!--<Spinner-->
         <!--android:layout_below="@+id/topButton"-->
@@ -89,6 +42,7 @@
     <!--<include layout="@layout/sense1"/>-->
 
     <LinearLayout
+        android:id="@+id/test_layout_anim_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -133,5 +87,14 @@
             android:layout_weight="1"/>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_above="@id/test_layout_anim_container"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/borkenline"
+        android:layerType="software"/>
 
 </RelativeLayout>

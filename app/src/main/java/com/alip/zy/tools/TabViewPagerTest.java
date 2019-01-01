@@ -1,14 +1,14 @@
 package com.alip.zy.tools;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 
-import com.alip.zy.view.activity.BaseImmersiveActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
-public class TabViewPagerTest extends BaseImmersiveActivity {
+public class TabViewPagerTest extends FragmentActivity {
 
     private MyPageAdapter pageAdapter;
     private ViewPager viewPager;
@@ -18,7 +18,7 @@ public class TabViewPagerTest extends BaseImmersiveActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_view_pager_test);
 
-        pageAdapter = new MyPageAdapter(getFragmentManager());
+        pageAdapter = new MyPageAdapter(getSupportFragmentManager());
         viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(pageAdapter);
 

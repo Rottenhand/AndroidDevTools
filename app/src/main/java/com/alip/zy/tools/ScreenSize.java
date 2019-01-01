@@ -4,8 +4,10 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.alip.zy.view.activity.BaseImmersiveActivity;
@@ -37,9 +39,13 @@ public class ScreenSize extends BaseImmersiveActivity {
     }
 
     public void btnGetScreenSize3(View view) {
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        textView.setText("width:" + displayMetrics.widthPixels+"  Height:"+displayMetrics.heightPixels);
+        DisplayMetrics realDisplayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getRealMetrics(realDisplayMetrics);
+        int realHeight = realDisplayMetrics.heightPixels;
+        int realWidth = realDisplayMetrics.widthPixels;
+        textView.setText("width:" + realWidth+"  Height:"+realHeight);
 
+        isNavBarExist();
     }
 
     public void btnGetScreenDensity(View view) {
@@ -72,16 +78,26 @@ public class ScreenSize extends BaseImmersiveActivity {
 
     }
 
-//    private void getScreenSizeOfDevice2() {
-//        Point point = new Point();
-//        getWindowManager().getDefaultDisplay().getRealSize(point);
-//        DisplayMetrics dm = getResources().getDisplayMetrics();
-//        double x = Math.pow(point.x/ dm.xdpi, 2);
-//        double y = Math.pow(point.y / dm.ydpi, 2);
-//        double screenInches = Math.sqrt(x + y);
-//        Log.d(TAG, "Screen inches : " + screenInches);
-//    }
+    private void isNavBarExist() {
+        WindowManager windowManager = getWindowManager();
+        Display d = windowManager.getDefaultDisplay();
 
+        DisplayMetrics realDisplayMetrics = new DisplayMetrics();
+        d.getRealMetrics(realDisplayMetrics);
+
+
+        int realHeight = realDisplayMetrics.heightPixels;
+        int realWidth = realDisplayMetrics.widthPixels;
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        d.getMetrics(displayMetrics);
+
+        int displayHeight = displayMetrics.heightPixels;
+        int displayWidth = displayMetrics.widthPixels;
+
+        boolean isNavigationBarExist = (realWidth - displayWidth) > 0 || (realHeight - displayHeight) > 0;
+
+    }
 
 //    //pixel = dip*density;
 //    private int convertDpToPixel(int dp) {
