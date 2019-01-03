@@ -19,17 +19,19 @@ import com.alip.zy.tools.R;
 import com.alip.zy.view.activity.BaseImmersiveActivity;
 import com.alip.zy.view.activity.CheckBuildActivity;
 import com.alip.zy.view.activity.FileManagerActivity;
+import com.alip.zy.view.activity.RecyclerViewActivity;
+import com.alip.zy.view.fragment.iview.BaseViewFragment;
 
 /**
  * 我的
  *
  * Created by ZY on 2018/1/2.
  */
-public class HomeProfileView extends FrameLayout {
+public class HomeProfileView extends BaseViewFragment {
 
     private static final int REQUEST_CODE_LOCATION_SETTINGS = 2;
 
-    private Button mBtnMyFiles, mBtnSetting, mBtnBuild;
+    private Button mBtnMyFiles, mBtnSetting, mBtnBuild, mRecycler;
     private BaseImmersiveActivity activity;
 
     public HomeProfileView(Context context) {
@@ -48,11 +50,27 @@ public class HomeProfileView extends FrameLayout {
         initViews(context);
     }
 
+    @Override
+    public void onResume() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+
+    }
+
     private void initViews(Context context) {
         LayoutInflater.from(context).inflate(R.layout.fragment_home_profile, this, true);
         mBtnMyFiles = findViewById(R.id.btn_profile_my_files);
         mBtnSetting = findViewById(R.id.btn_to_setting);
         mBtnBuild = findViewById(R.id.btn_check_build_info);
+        mRecycler = findViewById(R.id.btn_test_recycler_view);
         initListener();
     }
 
@@ -89,6 +107,14 @@ public class HomeProfileView extends FrameLayout {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), CheckBuildActivity.class);
 //                Intent intent = new Intent(getContext(), TransProgressActivity.class);
+                getContext().startActivity(intent);
+            }
+        });
+
+        mRecycler.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), RecyclerViewActivity.class);
                 getContext().startActivity(intent);
             }
         });

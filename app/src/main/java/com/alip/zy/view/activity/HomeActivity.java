@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+
+import com.alip.zy.view.fragment.iview.BaseViewFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -19,13 +21,13 @@ import com.alip.zy.view.fragment.HomeToolsView;
 
 public class HomeActivity extends BaseImmersiveActivity {
 
-    // 状态栏半透明#1B82D2#40000000
-//    private static final String STATUSBAR_TRANSPARENT = "#1B82D2";
+    private static final int VIEW_PAGER_COUNT = 3;
 
     private BottomNavigationView mBottomNav;
     private ViewPager mHomePager;
-    private HomeViewPagerAdapter mPagerAdapter;
+    private BaseViewFragment[] mViewPagerArray = new BaseViewFragment[VIEW_PAGER_COUNT];
 
+    private HomeViewPagerAdapter mPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,17 +47,32 @@ public class HomeActivity extends BaseImmersiveActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        for (BaseViewFragment baseView : mViewPagerArray) {
+            if (baseView != null) {
+                baseView.onResume();
+            }
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        for (BaseViewFragment baseView : mViewPagerArray) {
+            if (baseView != null) {
+                baseView.onPause();
+            }
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mHomePager.clearOnPageChangeListeners();
+        for (BaseViewFragment baseView : mViewPagerArray) {
+            if (baseView != null) {
+                baseView.onDestroy();
+            }
+        }
 
     }
 
@@ -101,6 +118,7 @@ public class HomeActivity extends BaseImmersiveActivity {
     private void initViews() {
         mPagerAdapter = new HomeViewPagerAdapter();
         mHomePager.setAdapter(mPagerAdapter);
+        mHomePager.setOffscreenPageLimit(2);
         mHomePager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
@@ -156,22 +174,9 @@ public class HomeActivity extends BaseImmersiveActivity {
 
     private class HomeViewPagerAdapter extends PagerAdapter{
 
-        private View[] mViewPagerArray;
-        private HomeEntryView mHomeEntryView;
-        private HomeToolsView mHomeToolsView;
-        private HomeProfileView mHomeProfileView;
-
-        public HomeViewPagerAdapter() {
-            mHomeEntryView = new HomeEntryView(HomeActivity.this);
-            mHomeToolsView = new HomeToolsView(HomeActivity.this);
-            mHomeProfileView = new HomeProfileView(HomeActivity.this);
-            mViewPagerArray =  new View[] {mHomeEntryView, mHomeToolsView, mHomeProfileView};
-        }
-
-
         @Override
         public int getCount() {
-            return 3;
+            return VIEW_PAGER_COUNT;
         }
 
         @Override
@@ -186,12 +191,26 @@ public class HomeActivity extends BaseImmersiveActivity {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            container.addView(mViewPagerArray[position]);
-            return mViewPagerArray[position];
-        }
-
-        public View getPagerView(int position) {
-            return mViewPagerArray[position];
+            BaseViewFragment fragment = mViewPagerArray[position];
+            if (fragment != null) {
+                container.addView(fragment);
+                return fragment;
+            } else {
+                switch (position){
+                    case 0:
+                        fragment = new HomeEntryView(HomeActivity.this);
+                        break;
+                    case 1:
+                        fragment = new HomeToolsView(HomeActivity.this);
+                        break;
+                    case 2:
+                        fragment = new HomeProfileView(HomeActivity.this);
+                        break;
+                }
+                mViewPagerArray[position] = fragment;
+                container.addView(fragment);
+                return fragment;
+            }
         }
     }
 }

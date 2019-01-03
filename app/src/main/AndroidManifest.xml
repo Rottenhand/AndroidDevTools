@@ -72,8 +72,10 @@
         <activity android:name="com.alip.zy.view.activity.JSONToolsActivity" />
         <activity android:name="com.alip.zy.view.activity.FileManagerActivity" />
         <activity android:name="com.alip.zy.view.activity.CheckBuildActivity" />
-        <activity android:name="com.alip.zy.view.activity.TransProgressActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity
+            android:name="com.alip.zy.view.activity.TransProgressActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="com.alip.zy.view.activity.RecyclerViewActivity"></activity>
     </application>
 
 </manifest>

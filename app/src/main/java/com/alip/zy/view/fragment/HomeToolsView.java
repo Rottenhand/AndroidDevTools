@@ -21,6 +21,7 @@ import com.alip.zy.tools.NotificationActivity;
 import com.alip.zy.tools.R;
 import com.alip.zy.tools.ScreenSize;
 import com.alip.zy.view.activity.JSONToolsActivity;
+import com.alip.zy.view.fragment.iview.BaseViewFragment;
 import com.alip.zy.viewanimation.ViewAnimation;
 
 /**
@@ -28,7 +29,7 @@ import com.alip.zy.viewanimation.ViewAnimation;
  *
  * Created by ZY on 2017/12/6.
  */
-public class HomeToolsView extends FrameLayout{
+public class HomeToolsView extends BaseViewFragment {
 
     private Button mBtnScreenSize, mBtnAnimation, mBtnLayoutAnimation, mPaoMaDeng, mFilesDir, mParseColor, mNotification, mTabLayout, mBtnJson;
     private EditText colorInt;
@@ -46,6 +47,21 @@ public class HomeToolsView extends FrameLayout{
     public HomeToolsView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initViews(context);
+    }
+
+    @Override
+    public void onResume() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+
     }
 
     private void initViews(Context context) {
